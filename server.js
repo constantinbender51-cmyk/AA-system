@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const { google } = require('googleapis');
 const app = express();
+const express = require('express');
+const app = express();
 
 // OAuth2 client setup
 const oauth2Client = new google.auth.OAuth2(
@@ -14,6 +16,7 @@ const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 
 // Simple memory store for tokens (not production suitable)
 const tokenStore = {};
+
 
 // Generate auth URL
 app.get('/auth', (req, res) => {
@@ -68,10 +71,14 @@ app.get('/emails', async (req, res) => {
     res.status(500).send('Error fetching emails');
   }
 });
+// Health check endpoint
+app.get('/health', (req, res) => res.sendStatus(200));
+
+// Keep process alive
+setInterval(() => {}, 1000);
 
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`OAuth URL: https://aa-system-production.up.railway.app/auth`);
 });
