@@ -2,8 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const { google } = require('googleapis');
 const app = express();
-const express = require('express');
-const app = express();
 
 // OAuth2 client setup
 const oauth2Client = new google.auth.OAuth2(
