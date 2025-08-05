@@ -73,5 +73,5 @@ app.get('/emails', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`OAuth URL: https://yourappname-production.up.railway.app/auth`);
+  console.log(`OAuth URL: https://aa-system-production.up.railway.app/auth`);
 });
